@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клан ORS | Minecraft</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #16213e, #0f3460);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-bottom: 3px solid #0593f1;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #0593f1;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: #a9b7c6;
+            margin-top: 5px;
+        }
+        
+        nav {
+            background-color: #0f3460;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #0593f1;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: #16213e;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            color: #0593f1;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .member-card {
+            background-color: #1a1a2e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #0f3460;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #0593f1;
+        }
+        
+        .member-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #0593f1;
+        }
+        
+        .member-role {
+            font-style: italic;
+            color: #a9b7c6;
+            margin-bottom: 1rem;
+        }
+        
+        .server-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .server-card {
+            background-color: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0593f1;
+        }
+        
+        .server-card h3 {
+            color: #0593f1;
+            margin-bottom: 1rem;
+        }
+        
+        .rules-list {
+            list-style-type: none;
+        }
+        
+        .rules-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .rules-list li:before {
+            content: "•";
+            color: #0593f1;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 150px;
+            background-color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a9b7c6;
+            font-style: italic;
+            border: 1px solid #0f3460;
+        }
+        
+        .join-section {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .join-button {
+            display: inline-block;
+            background-color: #0593f1;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .join-button:hover {
+            background-color: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        footer {
+            background-color: #0f3460;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 3px solid #e94560;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: #a9b7c6;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #e94560;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div>
+                <h1>Клан ORS</h1>
+            </div>
+
+</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">О клане</a></li>
+            <li><a href="#members">Участники</a></li>
+            <li><a href="#server">Наш сервер</a></li>
+            <li><a href="#rules">Правила</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#join">Присоединиться</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about">
+            <h2>О нашем клане</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Клан делится на гильдии, в которых вы сможете получать зарплату валютой сервера.подробнее читать в кодексе клана ниже</p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="about-image">
+                    <div style="width: 100%; height: 200px; background-color: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #a9b7c6;">
+                        Изображение базы клана
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="members">
+            <h2>Участники</h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-name">Svetashke</div>
+                    <div class="member-role">Основатель</div>
+                    <p>Стратег и главный строитель клана. Специализируется на проектировании сложных механизмов.</p>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">StarFox</div>
+                    <div class="member-role">Зам.Главы</div>
+                    <p>Организатор мероприятий и размещения приватов. Всегда готов помочь новичкам.</p>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Zero_Fault</div>
+                    <div class="member-role">Логист</div>
+                    <p>Хорошо разбирается в обновлении Create 0.6.</p>
+                </div>
+                <div class="member-card">
+        
+        <section id="server">
+            <h2>Информация о сервере и клане</h2>
+            <div class="server-info">
+                <div class="server-card">
+                    <h3>Техническая информация</h3>
+                    <p><strong>Версия:</strong> Minecraft 1.21.1</p>
+                    <p><strong>Адрес:</strong> ORS.MS.com</p>
+                    <p><strong>Геймплей:</strong> Выживание с модом Create и множеством его аддонов и прочих модов</p>
+                </div>
+                <div class="server-card">
+                    <h3>Что вас ждет</h3>
+                    <ul class="rules-list">
+                        <li>Система работы в гильдиях и повышения ранга</li>
+                        <li>Ежемесячные мероприятия на стадионе клана</li>
+                        <li>Дружелюбное сообщество</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rules">
+            <h2>Правила клана</h2>
+            <div class="server-card">
+                <ul class="rules-list">
+                    <li>Кодекс 
+
+                        Ордена Красного Камня 
+
+ 
+
+ 
+
+                    1. Вступление в клан 
+
+                    1.1 С момента подачи заявки игрок становится кандидатом на вступление в клан и добавляется в общий чат клана. 
+
+                    1.2 Кандидат обязан сообщить в чат свой никнейм на сервере, а также уведомлять о его изменении. 
+
+                    1.3 Для того чтобы стать полноправным участником клана, получить доступ к приватной территории других участников клана и общим ресурсам, кандидат должен пройти испытательный срок (далее ИС) в 5 дней. 
+
+                    1.3.1 Отсутствие кандидата на сервере, без объяснения причин и/или предупреждения администрации клана, в течении ИС, будут расценены как отказ от вступления. 
+
+                    1.3.2 В течение ИС кандидат должен выполнить 3 задания, выданных администрацией клана. 
+
+                    1.3.3 Кандидат может пропустить ИС заплатив налог в казну клана, в размере 3 золотых монет. 
+
+                    1.3.4 По истечении испытательного срока глава клана и/или администрация принимает решение о зачислении кандидата в ряды клана, с уведомлением об итогах решения. 
+
+                    1.4 Каждый новоприбывший игрок обеспечивается жильем, с момента как становится кандидатом на вступление и начальным набором ресурсов. 
+
+                    
+
+                    2 Права и обязанности членов ордена 
+
+                    2.1 Каждый член ордена обязан соблюдать общие правила сервера и кодекс ордена, за их нарушение игрок будет немедленно изгнан из клана, без права на восстановление с уведомлением администрации сервера о нарушении. 
+
+                    2.2 Каждый член клана может заниматься своими проектами, вести торговлю и свободно сотрудничать с другими игроками вне ордена. 
+
+                    2.3 Каждый член клана может приглашать других игроков в орден, но обязан уведомить об этом администрацию. 
+
+                    
+
+                    3 Гильдии ордена 
+
+                    3.1 Каждый член клана по мере своего развития, уведомив администрацию, в может вступить в одну из гильдий, отвечающих за развитие клана, после одобрения заявки. 
+
+                    3.2 За каждой гильдией закреплен свой руководитель, отвечающий за ее развитие, распределение ресурсов внутри своей гильдии и прием в нее новых участников. 
+
+                    3.3 Руководителей гильдий может назначать глава клана либо его заместитель. 
+
+                    3.4 Если игрок состоит в какой-либо гильдии, то он получает зарплату в размере 250Нокс в неделю 
+
+                    3.5 В каждой гильдии есть свои собственные правила, не противоречащие правилам сервера и клана. При их несоблюдении участник гильдии облагается штрафом в размере, зависящим от серьезности нарушения 
+
+                    
+
+                    Глава клана, зам. главы клана, торговый представитель и руководители гильдий являются членами администрации. 
+
+                    
+
+                    Гильдия инженеров – постройка, наладка и поддержание работоспособности всех технических механизмов клана. Снабжение и обеспечение бесперебойной поставки энергии гильдиям клана. 
+
+                    
+
+                    Гильдия фермеров – развитие сельского хозяйства, готовка и обеспечение продуктами и ингредиентами гильдии клана.  
+
+                    
+
+                    Гильдия строителей – возведение красивых построек, постройка поездов, прокладка дорог и обеспечение логистики. 
+
+                    
+
+                    Гильдия алхимиков – приготовление зелий, зачарование оружия и инструментов. 
+
+                    
+
+                    Гильдия стражей – отвечает за сохранность ресурсов клана его вооружения, техники и казны. Сражается с боссами и добывает особо ценные ресурсы. 
+
+                    
+
+                    Гильдия шахтеров – добывает редкоземельные ресурсы, прокладывает тоннели метро, занимается первичной обработкой ресурсов.  
+
+                    
+
+                    Торговый представитель – распоряжается казной клана, собирает налоги. Отвечает за оборот капиталов клана, развитие его экономики и межклановую торговлю. 
+
+                    
+
+                    Глава клана и его заместитель – отвечают за общее направление развития клана, определяют его внутреннюю и внешнюю политику, урегулирование внутренних и внешних конфликтов. Осуществляют набор и принятие новых игроков в клан. 
+
+                    
+
+                    3.6 Каждая гильдия имеет свою основную базу, на которой осуществляет деятельность и хранит ресурсы. 
+
+                    3.7 Каждая гильдия в конце каждой недели обязана передавать 30% от своего дохода в казну клана, каждый игрок, не состоящий в гильдии, кроме кандидата, обязан передавать 50% от своего дохода в казну клана. 
+
+                    3.8 Каждый игрок может запросить финансирование на свой проект из общей казны клана, обратившись к торговому представителю. 
+
+                    
+
+                    4 Выход из ордена 
+
+                    4.1 Каждый игрок может в любой момент добровольно выйти из состава ордена, с правом восстановления, но обязан перед этим уведомить администрацию. 
+
+                    4.2 Перед уходом каждый игрок обязан сдать 50% от всех имеющихся у него ресурсов, а также технику, транспорт и оружие выданные орденом. В противном случае его действия будут расценены как кража, с последующем сообщением администрации сервера. 
+
+                    4.3 После заявления об уходе игрок обязан перенести свои постройки на расстояние не менее 3-х чанков от всей территории клана, в течении 3-х дней. Если игрок этого не сделает, постройки переходят в собственность клана. 
+
+                    4.4 В случае изгнания, у игрока нет права вернуться в клан, а также все его имущество и ресурсы считаются собственностью клана. 
+
+                    4.5 При серьезном и неоднократном нарушении правил ордена на игрока будет накладываться варн. Максимум варнов можно получить 2 штуки, после получения 2 варна, игрок изгоняется из клана по пункту 4.2, 4.3 и 4.4 
+
+                    4.6 Так же если будет замечена любая порча имиджа клана в любом ее виде(начиная с мелкого хищения у других игроков и заканчивая серьезными преступлениями вроде нарушения правил сервера или убийства игроков) 
+
+                    
+
+                    5 Вступая в клан, игрок подтверждает свое ознакомление с его правилами и согласие с ними. 
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <h2>Галерея наших построек</h2>
+            <div class="gallery">
+                <div class="gallery-item">Главный Хаб</div>
+                <div class="gallery-item">Замок ORS</div>
+                <div class="gallery-item">Ферма</div>
+                <div class="gallery-item">ТЭС</div>
+                <div class="gallery-item">Портал в ад</div>
+            </div>
+        </section>
+        
+        <section id="join" class="join-section">
+            <h2>Присоединяйтесь к нам!</h2>
+            <p>Хотите стать частью нашего сообщества? Заполните заявку или свяжитесь с нами в Telegram!</p>
+            <a href="#application" class="join-button">Подать заявку</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Клан ORS © 2023. Все права защищены.</p>
+        <div class="social-links">
+            <a href="#">Telegram</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p>Сайт создан для сообщества Avilix</p>
+    </footer>
+</body>
+</html>
