@@ -112,6 +112,7 @@
             display: flex;
             align-items: center;
             gap: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .about-text {
@@ -134,50 +135,62 @@
             transform: scale(1.05);
         }
         
+        .about-description {
+            text-align: center;
+            color: #a9b7c6;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-items: center;
         }
         
         .member-card {
             background-color: #1a1a2e;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             transition: transform 0.3s ease;
             border: 1px solid #0f3460;
+            max-width: 350px;
+            width: 100%;
         }
         
         .member-card:hover {
-
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
         
         .member-avatar {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             background-color: #0f3460;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #0593f1;
+            border: 3px solid #0593f1;
         }
         
         .member-name {
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #0593f1;
+            font-size: 1.3rem;
         }
         
         .member-role {
             font-style: italic;
             color: #a9b7c6;
             margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
         
         .server-info {
@@ -281,30 +294,35 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            justify-items: center;
         }
         
         .image-card {
             background: #1a1a2e;
             border-radius: 10px;
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
             border: 1px solid #0f3460;
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .image-card img {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             height: auto;
             border-radius: 8px;
             margin-bottom: 1rem;
             border: 2px solid #0593f1;
-
         }
         
         .image-card p {
             color: #a9b7c6;
             font-style: italic;
+            text-align: center;
         }
         
         .join-section {
@@ -381,6 +399,10 @@
             .images-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -409,25 +431,30 @@
         <section id="about">
             <h2>О нашем клане</h2>
             <div class="about-content">
-                <p>Клан делится на гильдии, в которых вы сможете получать зарплату валютой сервера. Подробнее читать в кодексе клана ниже</p>
-                <p>Наше сообщество объединяет игроков, стремящихся к развитию и сотрудничеству в мире Minecraft с модом Create.</p>
+                <div class="about-text">
+                    <p>Клан делится на гильдии, в которых вы сможете получать зарплату валютой сервера. Подробнее читать в кодексе клана ниже</p>
+                    <p>Наше сообщество объединяет игроков, стремящихся к развитию и сотрудничеству в мире Minecraft с модом Create.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Ploshyad.png" alt="Главная площадь" onerror="this.style.display='none'">
+                </div>
             </div>
-            <div class="about-image">
-                <img src="Ploshyad.png" alt="Главная площадь" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
-                    Это наша главная площадь, вокруг нее будет строиться вся инфраструктура клана
+            <div class="about-description">
+                Это наша главная площадь, вокруг нее будет строиться вся инфраструктура клана
             </div>
         </section>
         
         <section id="members">
-            <h2>Участники</h2>
+            <h2>Администрация клана</h2>
             <div class="members-grid">
                 <div class="member-card">
+                    <div class="member-avatar">S</div>
                     <div class="member-name">Svetashke</div>
                     <div class="member-role">Основатель</div>
                     <p>Стратег и главный строитель клана. Специализируется на проектировании сложных механизмов.</p>
-
                 </div>
                 <div class="member-card">
+                    <div class="member-avatar">S</div>
                     <div class="member-name">StarFox</div>
                     <div class="member-role">Зам.Главы</div>
                     <p>Организатор мероприятий и размещения приватов. Всегда готов помочь новичкам.</p>
@@ -507,11 +534,10 @@
         <section id="gallery">
             <h2>Галерея наших построек</h2>
             <div class="gallery">
-                <div class="gallery-item"><img src="Obshaga.png" alt="Общага" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
-                <div class="gallery-item"><img src="Stadion.png" alt="Стадион" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
-                <div class="gallery-item"><img src="Sud.png" alt="Суд" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
-                <div class="gallery-item"><img src="TES1.png" alt="ТЭС" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
-                <div class="gallery-item"><img src="Hell.png" alt="ТЭС" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></div>
+                <div class="gallery-item"><img src="Obshaga.png" alt="Общага" onerror="this.style.display='none'"></div>
+                <div class="gallery-item"><img src="Stadion.png" alt="Стадион" onerror="this.style.display='none'"></div>
+                <div class="gallery-item"><img src="Sud.png" alt="Суд" onerror="this.style.display='none'"></div>
+                <div class="gallery-item"><img src="TES1.png" alt="ТЭС" onerror="this.style.display='none'"></div>
             </div>
         </section>
         
@@ -519,12 +545,16 @@
             <h2>Наши изображения</h2>
             <div class="images-grid">
                 <div class="image-card">
-                    <img src="TES2.png" alt="ТЭС" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="TES2.png" alt="ТЭС" onerror="this.style.display='none'">
                     <p>Место, где производятся ресурсы для построек клана</p>
                 </div>
                 <div class="image-card">
-                    <img src="TES1.png" alt="ТЭС" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="TES1.png" alt="ТЭС" onerror="this.style.display='none'">
                     <p>ЖД до ТЭС</p>
+                </div>
+                <div class="image-card">
+                    <img src="Hell.png" alt="Портал в ад" onerror="this.style.display='none'">
+                    <p>Портал в ад внутри Цитадели</p>
                 </div>
             </div>
         </section>
